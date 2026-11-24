@@ -8748,23 +8748,17 @@ input:focus,select:focus{outline:1px solid var(--acc1);outline-offset:-1px;box-s
       </div>
     </sc-if>
 
-    <!-- ===== 用戶列表「操作」選單 ===== -->
+    <!-- ===== 用戶列表「操作」下拉選單（貼著按鈕定位） ===== -->
     <sc-if value="{{ uaMenuOpen }}" hint-placeholder-val="{{ false }}">
-      <div data-screen-label="用戶設置／操作選單" onclick="{{ uaMenuClose }}" style="position:fixed;inset:0;background:rgba(var(--ink-rgb),.78);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;z-index:60;padding:24px">
-        <div class="sk-dialog" onclick="{{ stopClick }}" style="width:360px;max-width:100%;background:linear-gradient(180deg,var(--pan3),var(--pan2));border:1px solid var(--bd);box-shadow:0 0 60px rgba(var(--acc1-rgb),.15);display:flex;flex-direction:column;position:relative;clip-path:var(--clip-box20);border-radius:var(--rad-box20);overflow:hidden">
-          <div class="sk-accentline" style="position:absolute;top:0;left:0;width:140px;height:2px;background:linear-gradient(90deg,var(--acc1),transparent)"></div>
-          <div class="sk-dlghead" style="display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--div)">
-            <span style="font-size:15px;font-weight:700;color:var(--tx);letter-spacing:1px">操作 · {{ uaMenuName }}</span>
-            <div onclick="{{ uaMenuClose }}" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid transparent" style-hover="border-color:var(--bad)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tx3)" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></div>
-          </div>
-          <div style="display:flex;flex-direction:column;padding:6px 0">
-            <div onclick="{{ uaOpenProf }}" style="display:flex;align-items:center;gap:12px;padding:13px 22px;font-size:14px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.08)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"></path></svg>編輯個人資料</div>
-            <div onclick="{{ uaOpenActive }}" style="display:flex;align-items:center;gap:12px;padding:13px 22px;font-size:14px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.08)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>編輯活躍狀態</div>
-            <div onclick="{{ uaOpenPw }}" style="display:flex;align-items:center;gap:12px;padding:13px 22px;font-size:14px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.08)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>重置密碼</div>
-            <div onclick="{{ uaOpenKick }}" style="display:flex;align-items:center;gap:12px;padding:13px 22px;font-size:14px;color:var(--bad);cursor:pointer" style-hover="background:rgba(255,59,107,.08)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--bad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>踢出</div>
-            <div onclick="{{ uaOpenLogin }}" style="display:flex;align-items:center;gap:12px;padding:13px 22px;font-size:14px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.08)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>登錄信息</div>
-          </div>
-        </div>
+      <div data-screen-label="用戶設置／操作選單">
+      <div onclick="{{ uaMenuClose }}" style="position:fixed;inset:0;z-index:60"></div>
+      <div style="{{ uaMenuStyle }}">
+        <div onclick="{{ uaOpenProf }}" style="display:flex;align-items:center;gap:11px;padding:10px 16px;font-size:13.5px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"></path></svg>編輯個人資料</div>
+        <div onclick="{{ uaOpenActive }}" style="display:flex;align-items:center;gap:11px;padding:10px 16px;font-size:13.5px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>編輯活躍狀態</div>
+        <div onclick="{{ uaOpenPw }}" style="display:flex;align-items:center;gap:11px;padding:10px 16px;font-size:13.5px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>重置密碼</div>
+        <div onclick="{{ uaOpenKick }}" style="display:flex;align-items:center;gap:11px;padding:10px 16px;font-size:13.5px;color:var(--bad);cursor:pointer" style-hover="background:rgba(255,59,107,.1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--bad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg>踢出</div>
+        <div onclick="{{ uaOpenLogin }}" style="display:flex;align-items:center;gap:11px;padding:10px 16px;font-size:13.5px;color:var(--tx);cursor:pointer" style-hover="background:rgba(var(--acc1-rgb),.1)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>登錄信息</div>
+      </div>
       </div>
     </sc-if>
 
@@ -11121,20 +11115,31 @@ class Component extends DCLogic {
       active: u.active ? '激活' : '停用',
       onlineStyle: chip(u.online ? 'good' : 'mute'),
       activeStyle: chip(u.active ? 'good' : 'bad'),
-      // 「操作」下拉：預設填充內容，之後可再調整
-      onMenu: () => this.setState({ uaMenu: {
-        name: u.name,
-        nick: u.nick,
-        email: u.name.replace(/[^a-z0-9._-]/gi, '') + '@mootech.asia',
-        phoneCode: '+886',
-        phone: '912-345-678',
-        memo: u.memo || '',
-        active: u.active,
-        createdAt: '2026-09-01 10:00:00',
-        createdBy: 'admin',
-        updatedAt: u.loginAt + ':00',
-        updatedBy: 'admin',
-      } }),
+      // 「操作」下拉：貼著按鈕定位（固定定位避開表格裁切）；預設填充內容，之後可再調整
+      onMenu: (e) => {
+        const data = {
+          name: u.name,
+          nick: u.nick,
+          email: u.name.replace(/[^a-z0-9._-]/gi, '') + '@mootech.asia',
+          phoneCode: '+886',
+          phone: '912-345-678',
+          memo: u.memo || '',
+          active: u.active,
+          createdAt: '2026-09-01 10:00:00',
+          createdBy: 'admin',
+          updatedAt: u.loginAt + ':00',
+          updatedBy: 'admin',
+        };
+        const el = e && e.currentTarget;
+        if (el && el.getBoundingClientRect) {
+          const r = el.getBoundingClientRect();
+          const menuH = 262;
+          const openUp = r.bottom + menuH > window.innerHeight;
+          data.top = Math.round(openUp ? Math.max(8, r.top - menuH - 6) : r.bottom + 6);
+          data.right = Math.round(Math.max(8, window.innerWidth - r.right));
+        } else { data.top = 160; data.right = 24; }
+        this.setState({ uaMenu: data });
+      },
     }));
 
     const vendorRows = st.vendors.map((v, i) => {
@@ -14022,6 +14027,9 @@ class Component extends DCLogic {
       // ===== 用戶列表「操作」下拉選單 + 五個子彈窗（原型：僅改記憶體 / 提示） =====
       uaMenuOpen: !!st.uaMenu,
       uaMenuName: st.uaMenu ? st.uaMenu.name : '',
+      uaMenuStyle: st.uaMenu
+        ? 'position:fixed;top:' + st.uaMenu.top + 'px;right:' + st.uaMenu.right + 'px;z-index:61;width:208px;background:linear-gradient(180deg,var(--pan3),var(--pan2));border:1px solid var(--bd);box-shadow:0 18px 44px rgba(0,0,0,.6);border-radius:var(--rad-cut8);overflow:hidden;padding:6px 0;display:flex;flex-direction:column'
+        : '',
       uaMenuClose: () => this.setState({ uaMenu: null }),
       uaOpenProf: () => this.setState((p) => ({ uaMenu: null, uaProf: { ...p.uaMenu } })),
       uaOpenActive: () => this.setState((p) => ({ uaMenu: null, uaActive: { name: p.uaMenu.name, memo: p.uaMenu.memo, active: p.uaMenu.active } })),
